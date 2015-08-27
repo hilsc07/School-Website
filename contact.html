@@ -1,0 +1,137 @@
+﻿<?php
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$message = $_POST['message'];
+	$human = intval($_POST['human']);
+	
+	$from = 'Contact Form'; 
+	$to = 'hilaryschow@gmail.com'; 
+	$subject = 'Message from $name ';
+	 
+	$body = "From: $name\n E-Mail: $email\n Message:\n $message";
+	
+	if(!$_POST['name']){
+		$errname = 'Please enter your name.'
+	}
+	
+	if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+    	$errEmail = 'Please enter a valid email address';
+    }
+    
+    if ($human !== 5) {
+    	$errHuman = 'Your anti-spam is incorrect';
+	}
+
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+<!--StyleSheets -->
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+
+
+<title>Croydon Chinese School</title>
+</head>
+
+<body>
+
+		<div id="contact">
+			<ul>
+				<li><p class="glyphicon glyphicon glyphicon-map-marker " aria-hidden="true">Trinity School, Shirley Road, Croydon CR9 7AT</p></li>
+				<li><p class="glyphicon glyphicon glyphicon-earphone" aria-hidden="true"> 0125555555</p></li>
+				<li><p class="glyphicon glyphicon glyphicon glyphicon-envelope" aria-hidden="true"> <a href="mailto:chineseschool@gmail.com">chineseschool@gmail.com</a></p></li>
+			</ul>
+		</div>
+
+		<div id="header">
+			<div class="logo">
+				<img alt="Croydon" src="photos/logo.png" />
+			</div>
+			<a href="index.html"><img alt="" src="icons/home.png" height="100" width="100" /></a>
+			<a href="about.html"><img alt="" src="icons/about.png" height="100" width="100" /></a>
+			<a href="newsevents.html"><img alt="" src="icons/newsevents.png" height="100" width="100" /></a>
+			<a href="contact.php"><img alt="" src="icons/contact.png" height="100" width="100" /></a>		
+		</div>
+		
+		<div>&nbsp;</div>
+		<ol class="breadcrumb">
+		  <h2>Contact Us</h2>
+		  <li><a href="index.html">home</a></li>
+		  <li><a href="contact.html">contact</a></li>
+		</ol>								
+		<div id="content">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2490.5243483422246!2d-0.05948750000000002!3d51.375040399999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487600ee46435b73%3A0xfb406058a5953d44!2sTrinity+School+of+John+Whitgift!5e0!3m2!1sen!2suk!4v1440436339493" width="950" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+			<table>
+				<tr>
+					<td class="col-md-4">
+						<h3>Contact Details</h3>
+					
+						  <strong>CCiL Croydon Chinese School</strong><br>
+						  <p>Trinity School, Shirley Road<br>
+						  Croydon CR9 7AT<br>
+						  <abbr title="Phone">P:</abbr> 07710 794 212<br></p>		
+										
+						  <strong>Email</strong><br>
+						  <a href="mailto:chineseschool@gmail.com">chineseschool@gmail.com</a>
+				  	</td>
+				  	<td class="col-md-8>
+				  		<form class="form-horizontal" role="form" method="post" action="contact.php">
+						    <div class="form-group">
+						        <label for="name" class="col-sm-2 control-label">Name</label>
+						        <div class="col-sm-10">
+						            <input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="" />
+						        	<?php echo "<p class='text-danger'>$errName</p>"; ?>
+						        </div>
+						    </div>
+						    <div class="form-group">
+						        <label for="email" class="col-sm-2 control-label">Email</label>
+						        <div class="col-sm-10">
+						            <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="" />
+						        	<?php echo "<p class='text-danger'>$errEmail</p>"; ?>
+						        </div>
+						    </div>
+						    <div class="form-group">
+						        <label for="message" class="col-sm-2 control-label">Message</label>
+						        <div class="col-sm-10">
+						            <textarea class="form-control" rows="4" name="message"></textarea>
+						            
+						        </div>
+						    </div>
+						    <div class="form-group">
+						        <label for="human" class="col-sm-2 control-label">2 + 3 = ?</label>
+						        <div class="col-sm-10">
+						            <input type="text" class="form-control" id="human" name="human" placeholder="Your Answer" />
+						        	
+						        </div>
+						    </div>
+						    <div class="form-group">
+						        <div class="col-sm-10 col-sm-offset-2">
+						            <input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary" />
+						        </div>
+						    </div>
+						    <div class="form-group">
+						        <div class="col-sm-10 col-sm-offset-2">
+						           
+						        </div>
+						    </div>
+						</form>
+				  	</td>
+				  </tr>	
+			</table>
+						
+		</div>
+		
+		<div id="footer">
+			<p>Copyright (c) Croydon Chinese School 2015</p>
+		</div>
+		
+		
+		
+</body>
+
+</html>
